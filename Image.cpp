@@ -6,6 +6,13 @@ namespace prog
   {
     this->image_width=w;
     this->image_height=h;
+
+    for(int i = 0 ; i < w ; i++){
+        for(int j = 0 ; j < h ; j++){
+          pixels[i][j] = fill;
+        }
+    }
+    
   }
   Image::~Image()
   {

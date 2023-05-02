@@ -12,7 +12,7 @@ namespace prog
           pixels[i][j] = fill;
         }
     }
-    
+
   }
   Image::~Image()
   {
@@ -27,15 +27,15 @@ namespace prog
   }
 
   // TODO: remove this DUMMY_color variable once you have appropriate fields for representing image pixels.
-  Color DUMMY_color;
+  //Color DUMMY_color;
 
   Color& Image::at(int x, int y)
   {
-    return DUMMY_color;
+    return pixels[x][y];
   }
 
   const Color& Image::at(int x, int y) const
   {
-    return DUMMY_color;
+    return this->pixels[x][y];
   }
 }

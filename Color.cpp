@@ -18,13 +18,13 @@ namespace prog {
         this->blue_=blue;
     }
     rgb_value Color::red() const {
-        return this->red_;
+        return red_;
     }
     rgb_value Color::green() const {
-        return this->green_;
+        return green_;
     }
     rgb_value Color::blue() const {
-        return this->blue_;
+        return blue_;
     }
 
     // TODO: remove this DUMMY variable once you have appropriate fields for representing colors.

@@ -6,17 +6,21 @@ namespace prog
   {
     this->image_width=w;
     this->image_height=h;
+    pixels = new Color*[w];
+    for(int i=0;i<w;i++) {pixels[i] = new Color[h];}
 
-    for(int i = 0 ; i < w ; i++){
-        for(int j = 0 ; j < h ; j++){
-          pixels[i][j] = fill;
+    for(int i=0;i<w;i++){
+      for(int j=0;j<h;j++){
+          pixels[i][j]=fill;
         }
     }
-
   }
   Image::~Image()
   {
-    //delete[] pixels;
+    for(int i=0;i<this->image_width;i++){
+      delete[] pixels[i];
+    }
+    delete[] pixels;
   }
   int Image::width() const
   {

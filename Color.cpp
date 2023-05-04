@@ -39,12 +39,4 @@ namespace prog {
     rgb_value& Color::blue()  {
       return blue_;
     }
-
-    Color& Color::operator=(const Color& c) {
-        this->red_ = c.red_;
-        this->green_= c.green_;
-        this->blue_= c.blue_;
-        return *this;
-    }
-    
 }

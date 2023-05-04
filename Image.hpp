@@ -11,7 +11,8 @@ namespace prog
     // TODO: define private fields for image state
     int image_width;
     int image_height;
-    std::vector<std::vector<Color>> pixels;
+    Color **pixels;
+    //std::vector<std::vector<Color>> pixels;
 
   public:
     Image(int w, int h, const Color &fill = {255, 255, 255});

@@ -16,6 +16,7 @@ namespace prog
   }
   Image::~Image()
   {
+    //delete[] pixels;
   }
   int Image::width() const
   {

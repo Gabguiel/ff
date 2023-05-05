@@ -49,9 +49,9 @@ namespace prog {
                 continue;
             } 
             // TODO ...
-            else if (command == "invert"){
+            /*else if (command == "invert"){
                 this->image->invert();
-            }
+            }*/
 
         }
     }

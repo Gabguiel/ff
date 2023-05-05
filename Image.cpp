@@ -11,7 +11,6 @@ namespace prog
     std::cout<< w;
     for(int i=0;i<w;i++) {
       pixels[i] = new Color[h];
-      std::cout << pixels[i]->red();
     }
 
     for(int i=0;i<w;i++){

@@ -1,4 +1,5 @@
 #include "Image.hpp"
+#include <iostream>
 
 namespace prog
 {
@@ -7,6 +8,7 @@ namespace prog
     this->image_width=w;
     this->image_height=h;
     pixels = new Color*[w];
+    std::cout<< w;
     for(int i=0;i<w;i++) {pixels[i] = new Color[h];}
 
     for(int i=0;i<w;i++){

@@ -25,7 +25,7 @@ namespace prog
     void blank();
     void save();
 
-    Image *image;
+    Image* image;
   };
 }
 #endif

@@ -45,4 +45,12 @@ namespace prog
   {
     return this->pixels[x][y];
   }
+
+  void Image::invert(){
+    for(int i=0;i< this->image_width;i++){
+      for(int j=0;j<this->image_height;j++) {
+          pixels[i][j].invert();
+        }
+      }
+  }
 }

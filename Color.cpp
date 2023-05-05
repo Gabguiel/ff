@@ -39,4 +39,10 @@ namespace prog {
     rgb_value& Color::blue()  {
       return blue_;
     }
+
+    void Color::invert(){
+         this->red_=255-red();
+         this->green_=255 - green();
+         this->blue_= 255- blue();
+    }
 }

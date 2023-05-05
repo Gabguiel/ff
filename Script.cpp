@@ -48,10 +48,10 @@ namespace prog {
                 save();
                 continue;
             } 
-            if (command == "invert"){
-                invert();
-                continue;}
             // TODO ...
+            else if (command == "invert"){
+                this->image->invert();
+            }
 
         }
     }

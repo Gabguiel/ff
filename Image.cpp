@@ -9,11 +9,15 @@ namespace prog
     this->image_height=h;
     pixels = new Color*[w];
     std::cout<< w;
-    for(int i=1;i<w;i++) {pixels[i] = new Color[h];}
+    for(int i=0;i<w;i++) {
+      pixels[i] = new Color[h];
+      std::cout << pixels[i]->red();
+    }
 
-    for(int i=1;i<w;i++){
+    for(int i=0;i<w;i++){
       for(int j=0;j<h;j++){
           pixels[i][j]=fill;
+          std::cout << pixels[i][j].red();
         }
     }
   }

@@ -5,10 +5,9 @@ namespace prog
 {
   Image::Image(int w, int h, const Color &fill)
   {
-    this->image_width=w;
+    /*this->image_width=w;
     this->image_height=h;
     pixels = new Color*[w];
-    int count =0;
     for(int i=0;i<w;i++) {
       pixels[i] = new Color[h];
     }
@@ -16,9 +15,18 @@ namespace prog
     for(int i=0;i<w;i++){
       for(int j=0;j<h;j++){
           pixels[i][j]=fill;
-          std::cout<< count;
-          count++;
         }
+    }*/
+
+    this->image_width = w;
+    this->image_height = h;
+    pixels = new Color*[w];
+    Color *data = new Color[h*w];
+    for(int i = 0 ; i < w ; i++){
+      pixels[i] = data + i * h;
+      for(int j = 0 ; j < h ; j++){
+        pixels[i][j] = fill;
+      }
     }
   }
   Image::~Image()

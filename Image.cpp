@@ -23,7 +23,7 @@ namespace prog
   }
   Image::~Image()
   {
-    for(int i=0;i<this->image_width;i++){
+    for(int i=0;i<width();i++){
       delete[] pixels[i];
     }
     delete[] pixels;

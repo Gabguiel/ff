@@ -54,7 +54,7 @@ namespace prog {
                 continue;
             }
             if (command == "to_gray_scale"){
-                //this->image.
+                this->image->to_gray_scale();
             }
 
         }

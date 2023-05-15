@@ -53,16 +53,14 @@ namespace prog
     for(int i=0;i< this->image_width;i++){
       for(int j=0;j<this->image_height;j++){
         pixels.find({i,j})->second.invert();
-        //pixels.at(i,j).nvert();
-          //pixels[i][j].invert();
-        }
       }
+    }
   }
 
   void Image::to_gray_scale(){
     for(int i=0;i< this->image_width;i++){
       for(int j=0;j<this->image_height;j++) {
-          //pixels[i][j].;
+          pixels.find({i,j})->second.invert();
         }
       }
   }

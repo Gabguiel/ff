@@ -55,6 +55,11 @@ namespace prog {
             }
             if (command == "to_gray_scale"){
                 this->image->to_gray_scale();
+                continue;
+            }
+            if (command == "replace"){
+                replace();
+                continue;
             }
 
         }
@@ -79,5 +84,12 @@ namespace prog {
         string filename;
         input >> filename;
         saveToPNG(filename, image);
+    }
+    void Script::replace(){
+
+        rgb_value r1,g1,b1,r2,g2,b2;
+        
+        input>>r1>>g1>>b1>>r2>>g2>>b2;
+        this->image->replace(r1,g1,b1,r2,g2,b2);
     }
 }

@@ -67,7 +67,7 @@ namespace prog
   void Image::replace(rgb_value r1, rgb_value g1, rgb_value b1, rgb_value r2,rgb_value g2, rgb_value b2){
     for(int i=0;i< this->image_width;i++){
       for(int j=0;j<this->image_height;j++) {
-        if(pixels.find({i,j})->second.red()== r1 && pixels.find({i,j})->second.green()== g1 && pixels.find({i,j})->second.blue()== b1){
+        if(pixels.find({i,j})->second== Color(r1,g1,b1)){
           std::cout << 1<< std::endl;
           pixels.find({i,j})->second.change_color(r2, g2 , b2);
         }

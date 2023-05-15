@@ -23,6 +23,7 @@ namespace prog
       void invert();
       void to_gray_scale();
       void change_color(rgb_value r, rgb_value g, rgb_value b);
+      bool operator==(const Color &c) const;
   };
 }
 #endif

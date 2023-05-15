@@ -49,8 +49,12 @@ namespace prog {
                 continue;
             } 
             // TODO ...
-            else if (command == "invert"){
+            if (command == "invert"){
                 this->image->invert();
+                continue;
+            }
+            if (command == "to_gray_scale"){
+                //this->image.
             }
 
         }

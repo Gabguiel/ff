@@ -7,7 +7,7 @@ namespace prog
   {
     this->image_width=w;
     this->image_height=h;
-    pixels = new Color*[w];
+    /*pixels = new Color*[w];
     for(int i=0;i<w;i++) {
       pixels[i] = new Color[h];
     }
@@ -16,15 +16,17 @@ namespace prog
       for(int j=0;j<h;j++){
           pixels[i][j]=fill;
         }
-    }
+    }*/
+    for(int x = 0; x < w; x++)
+      {
+        for (int y = 0; y < h; y++)
+        {
+          pixels[{x,y}] = fill;
+        }
+      }
   }
-  Image::~Image()
-  {
-    for(int i=0;i<width();i++){
-      delete[] pixels[i];
-    }
-    delete[] pixels;
-  }
+  Image::~Image(){}
+
   int Image::width() const
   {
     return this->image_width;
@@ -39,18 +41,28 @@ namespace prog
 
   Color& Image::at(int x, int y)
   {
-    return pixels[x][y];
+    return pixels[{x,y}];
   }
 
   const Color& Image::at(int x, int y) const
   {
-    return this->pixels[x][y];
+    return pixels.find({x,y})->second;
   }
 
   void Image::invert(){
     for(int i=0;i< this->image_width;i++){
+      for(int j=0;j<this->image_height;j++){
+        pixels.find({i,j})->second.invert();
+        //pixels.at(i,j).nvert();
+          //pixels[i][j].invert();
+        }
+      }
+  }
+
+  void Image::to_gray_scale(){
+    for(int i=0;i< this->image_width;i++){
       for(int j=0;j<this->image_height;j++) {
-          pixels[i][j].invert();
+          //pixels[i][j].;
         }
       }
   }

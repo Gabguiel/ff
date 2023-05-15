@@ -2,16 +2,30 @@
 #define __prog_Image_hpp__
 #include "Color.hpp"
 #include <vector>
+#include <map>
 
 namespace prog
 {
+  struct Pixel 
+  {
+  int x, y;
+  bool operator<(const Pixel& other) const 
+  {
+    if (x != other.x) {
+      return x < other.x;
+    }
+    return y < other.y;
+  }
+  };
+
   class Image
   {
   private:
     // TODO: define private fields for image state
     int image_width;
     int image_height;
-    Color **pixels;
+    std::map<Pixel, Color> pixels;
+    //Color **pixels;
     //std::vector<std::vector<Color>> pixels;
 
   public:
@@ -22,6 +36,7 @@ namespace prog
     Color &at(int x, int y);
     const Color &at(int x, int y) const;
     void invert();
+    void to_gray_scale();
   };
 }
 #endif

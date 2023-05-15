@@ -41,8 +41,15 @@ namespace prog {
     }
 
     void Color::invert(){
-         this->red_=255-red();
-         this->green_=255 - green();
-         this->blue_= 255- blue();
+        this->red_=255-red();
+        this->green_=255 - green();
+        this->blue_= 255- blue();
+    }
+
+    void Color::to_gray_scale(){
+        rgb_value v=blue()+green()+ red();
+        this->blue_=v;
+        this->red_=v;
+        this->green_=v;
     }
 }

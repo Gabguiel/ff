@@ -58,6 +58,7 @@ namespace prog {
         this->green_=g;
         this->blue_=b;
     }
+  
     bool Color::operator==(const Color &c) const {
         if(this->red_ == c.red_){
             if(this->green_ == c.green_){

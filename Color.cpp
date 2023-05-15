@@ -58,7 +58,14 @@ namespace prog {
         this->green_=g;
         this->blue_=b;
     }
-    // void Color::fill(int x,int y,int w,int h, rgb_value r, rgb_value g, rgb_value b){
-
-    // }
+    bool Color::operator==(const Color &c) const {
+        if(this->red_ == c.red_){
+            if(this->green_ == c.green_){
+                if(this->green_ == c.blue_){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

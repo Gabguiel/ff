@@ -73,6 +73,10 @@ namespace prog {
                 this->image->v_mirror();
                 continue;
             }
+            if(command =="add"){
+                add();
+                continue;
+            }
 
 
         }
@@ -110,5 +114,13 @@ namespace prog {
 
         input>>x>>y>>w>>h>>r>>g>>b;
         this->image->fill(x,y,w,h,r,g,b);
+    }
+    void Script::add(){
+        string filename;
+        int r,g,b,x,y;
+
+        input>> filename>>r>>g>>b>>x>>y;
+        Image* img=loadFromPNG(filename);
+        this->image->add(*img,r,g,b,x,y );
     }
 }

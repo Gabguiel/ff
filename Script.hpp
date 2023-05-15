@@ -26,6 +26,7 @@ namespace prog
     void save();
     void replace();
     void fill();
+    void add();
     
   };
 }

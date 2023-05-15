@@ -73,4 +73,7 @@ namespace prog
       }
     }
   }
+  // void Image::fill(int x,int y,int w,int h, rgb_value r, rgb_value g, rgb_value b){
+    
+  // }
 }

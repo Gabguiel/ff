@@ -52,10 +52,13 @@ namespace prog {
         this->red_=v;
         this->green_=v;
     }
-
+    
     void Color::change_color(rgb_value r, rgb_value g, rgb_value b){
         this->red_=r;
         this->green_=g;
         this->blue_=b;
     }
+    // void Color::fill(int x,int y,int w,int h, rgb_value r, rgb_value g, rgb_value b){
+
+    // }
 }

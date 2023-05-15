@@ -60,7 +60,7 @@ namespace prog
   void Image::to_gray_scale(){
     for(int i=0;i< this->image_width;i++){
       for(int j=0;j<this->image_height;j++) {
-          pixels.find({i,j})->second.invert();
+          pixels.find({i,j})->second.to_gray_scale();
         }
       }
   }

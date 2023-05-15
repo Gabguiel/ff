@@ -74,4 +74,14 @@ namespace prog
       }
     }
   }
+  void Image::fill(int x, int y, int w, int h, rgb_value r, rgb_value g, rgb_value b) {
+    for (int i = x; i < x + w; i++) {
+        for (int j = y; j < y + h; j++) {
+            Color& color = at(i, j);
+            color.red() = r;
+            color.green() = g;
+            color.blue() = b;
+        }
+    }
+}
 }

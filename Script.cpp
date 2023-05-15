@@ -61,6 +61,10 @@ namespace prog {
                 replace();
                 continue;
             }
+            if (command == "fill"){
+                fill();
+                continue;
+            }
 
         }
     }
@@ -91,5 +95,11 @@ namespace prog {
         
         input>>r1>>g1>>b1>>r2>>g2>>b2;
         this->image->replace(r1,g1,b1,r2,g2,b2);
+    }
+    void Script::fill(){
+        int x,y,w,h,r,g,b;
+
+        input>>x>>y>>w>>h>>r>>g>>b;
+        this->image->fill(x,y,w,h,r,g,b);
     }
 }

@@ -65,6 +65,15 @@ namespace prog {
                 fill();
                 continue;
             }
+            if(command=="h_mirror"){
+                this->image->h_mirror();
+                continue;
+            }
+            if(command== "v_mirror"){
+                this->image->v_mirror();
+                continue;
+            }
+
 
         }
     }

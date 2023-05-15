@@ -70,7 +70,7 @@ namespace prog
       for(int j=0;j<this->image_height;j++) {
         if(pixels.find({i,j})->second == cmp){
           std::cout << 1<< std::endl;
-          pixels.find({i,j})->second.change_color(r2, g2 , b2);
+          pixels.find({i,j})->second.change_color(r2, g2 , b2); 
         }
       }
     }
@@ -85,7 +85,22 @@ namespace prog
             color.blue() = b;
         }
     }
-}
+  }
+  void Image::h_mirror(){
+    for(int x = 0; x < width()/2; x++){
+        for (int y = 0; y < height(); y++){
+        //Color& color = at(x,y);
+        pixels[{width()-x-1,y}] = at(x,y);
+      }
+    }
+  }
+  void Image::v_mirror(){
+    for(int x = 0; x < width(); x++){
+        for (int y = 0; y < height()/2; y++){
+        pixels[{x,height()-y-1}] = at(x,y);
+      }
+    }
+  }
 
   
 }

@@ -47,7 +47,7 @@ namespace prog {
     }
 
     void Color::to_gray_scale(){
-        rgb_value v=blue()+green()+ red();
+        rgb_value v=(blue()+green()+ red())/3;
         this->blue_=v;
         this->red_=v;
         this->green_=v;

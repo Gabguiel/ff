@@ -88,16 +88,17 @@ namespace prog
   void Image::h_mirror(){
     for(int x = 0; x < width()/2; x++){
       for (int y = 0; y < height(); y++){
-        pixels.find({width()-x-1,y})->second.change_color(at(x,y).red(),at(x,y).green(), at(x,y).blue());
-        //pixels[{width()-x-1,y}] = at(x,y);
+        //pixels.find({width()-x-1,y})->second={at(x,y).red(),at(x,y).green(), at(x,y).blue()};
+        //pixels.find({width()-x-1,y})->second.change_color(at(x,y).red(),at(x,y).green(), at(x,y).blue());
+        pixels[{width()-x-1,y}] = at(x,y);
       }
     }
   }
   void Image::v_mirror(){
     for(int x = 0; x < width(); x++){
-        for (int y = 0; y < height()/2; y++){
-        pixels.find({x,height()-y-1})->second.change_color(at(x,y).red(),at(x,y).green(), at(x,y).blue());
-        //pixels[{x,height()-y-1}] = at(x,y);
+      for (int y = 0; y < height()/2; y++){
+        //pixels.find({x,height()-y-1})->second={at(x,y).red(),at(x,y).green(), at(x,y).blue()};
+        pixels[{x,height()-y-1}] = at(x,y);
       }
     }
   }

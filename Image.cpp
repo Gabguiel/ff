@@ -87,8 +87,8 @@ namespace prog
   }
   void Image::h_mirror(){
     for(int x = 0; x < width()/2; x++){
-        for (int y = 0; y < height(); y++){
-        pixels.find({width()-x-1,y})->second=at(x,y);
+      for (int y = 0; y < height(); y++){
+        pixels.find({width()-x-1,y})->second.change_color(at(x,y).red(),at(x,y).green(), at(x,y).blue());
         //pixels[{width()-x-1,y}] = at(x,y);
       }
     }
@@ -96,15 +96,15 @@ namespace prog
   void Image::v_mirror(){
     for(int x = 0; x < width(); x++){
         for (int y = 0; y < height()/2; y++){
-        pixels.find({x,height()-y-1})->second=at(x,y);
+        pixels.find({x,height()-y-1})->second.change_color(at(x,y).red(),at(x,y).green(), at(x,y).blue());
         //pixels[{x,height()-y-1}] = at(x,y);
       }
     }
   }
   void Image::add(const Image& img, rgb_value r, rgb_value g, rgb_value b,  int x, int y){
     Color cmp={r,g,b};
-    for(int i = x, i2 = 0 ; i < width(), i2 < img.width() ; i++, i2++){
-      for(int j = y, j2 = 0 ; j < height() , j2 < img.height() ; j++, j2++){
+    for(int i = x, i2 = 0 ; i < this->image_width, i2 < img.width() ; i++, i2++){
+      for(int j = y, j2 = 0 ; j < this->image_height , j2 < img.height() ; j++, j2++){
         if(!(pixels.find({i,j})->second == cmp)){
           pixels.find({i,j})->second=at(i2,j2);
         }

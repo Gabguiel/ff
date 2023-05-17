@@ -103,14 +103,14 @@ namespace prog
     }
   }
   void Image::add(const Image& img, rgb_value r, rgb_value g, rgb_value b,  int x, int y){
-    /*Color cmp={r,g,b};
-    for(int i = x, i2 = 0 ; i < this->image_width, i2 < img.width() ; i++, i2++){
-      for(int j = y, j2 = 0 ; j < this->image_height , j2 < img.height() ; j++, j2++){
+    Color cmp={r,g,b};
+    for(int i = x , i2 = 0 ; i < this->image_width && i2 < img.width() ; i++, i2++){
+      for(int j = y, j2 = 0 ; j < this->image_height && j2 < img.height() ; j++, j2++){
         if(!(pixels.find({i,j})->second == cmp)){
           pixels.find({i,j})->second=at(i2,j2);
         }
       }
-    }*/
+    }
   }
 
   void Image::crop(int x, int y, int w, int h){

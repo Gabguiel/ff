@@ -7,16 +7,6 @@ namespace prog
   {
     this->image_width=w;
     this->image_height=h;
-    /*pixels = new Color*[w];
-    for(int i=0;i<w;i++) {
-      pixels[i] = new Color[h];
-    }
-
-    for(int i=0;i<w;i++){
-      for(int j=0;j<h;j++){
-          pixels[i][j]=fill;
-        }
-    }*/
     for(int x = 0; x < w; x++)
       {
         for (int y = 0; y < h; y++)
@@ -85,23 +75,24 @@ namespace prog
         }
     }
   }
-  void Image::h_mirror(){
-    for(int x = 0; x < width()/2; x++){
-      for (int y = 0; y < height(); y++){
-        //pixels.find({width()-x-1,y})->second={at(x,y).red(),at(x,y).green(), at(x,y).blue()};
-        //pixels.find({width()-x-1,y})->second.change_color(at(x,y).red(),at(x,y).green(), at(x,y).blue());
-        pixels[{width()-x-1,y}] = at(x,y);
-      }
+  void Image::h_mirror() {
+  for (int i=0; i<this->width()/2; i++) {
+    for (int j=0; j<this->height(); j++) {
+      Color temp=at(i, j);
+      at(i, j)=at(this->width()-1-i, j);
+      at(this->width()-1-i, j)=temp;
     }
   }
-  void Image::v_mirror(){
-    for(int x = 0; x < width(); x++){
-      for (int y = 0; y < height()/2; y++){
-        //pixels.find({x,height()-y-1})->second={at(x,y).red(),at(x,y).green(), at(x,y).blue()};
-        pixels[{x,height()-y-1}] = at(x,y);
-      }
+}
+void Image::v_mirror() {
+  for (int y=0; y<this->height()/2; y++) {
+    for (int x=0; x<this->width(); x++) {
+      Color temp=at(x, y);
+      at(x, y)=at(x, this->height()-1-y);
+      at(x, this->height()-1-y)=temp;
     }
   }
+}
   void Image::add(const Image& img, rgb_value r, rgb_value g, rgb_value b,  int x, int y){
     Color cmp={r,g,b};
     for(int i = x , i2 = 0 ; i < this->image_width && i2 < img.width() ; i++, i2++){

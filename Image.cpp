@@ -112,5 +112,68 @@ namespace prog
       }
     }*/
   }
+
+  void Image::crop(int x, int y, int w, int h){
+  this->image_width = w;
+  this->image_height = h;
+
+  std::map<Pixel, Color> cropped_pixels;
+  for (auto& pixel : pixels) {
+    int px = pixel.first.x;
+    int py = pixel.first.y;
+    int new_x = px - x;
+    int new_y = py - y;
+    Pixel new_pixel{new_x, new_y};
+    cropped_pixels[new_pixel] = pixel.second;
+    }
+
+  pixels = cropped_pixels;
+}
+void Image::rotate_left() {
+    std::map<Pixel, Color> rotated_pixels;
+
+    for (const auto& entry : this->pixels) {
+        const Pixel& pixel = entry.first;
+        const Color& color = entry.second;
+
+        int new_x = pixel.y;
+        int new_y = this->image_width - 1 - pixel.x;
+
+        Pixel rotated_pixel { new_x, new_y };
+
+        rotated_pixels[rotated_pixel] = color;
+    }
+
+
+    int width2 = this->image_height;
+    int height2 = this->image_width;
+    this->image_width = width2;
+    this->image_height = height2;
+    this->pixels = std::move(rotated_pixels);
+
+}
+
+void Image::rotate_right(){
+  std::map<Pixel, Color> rotated_pixels;
+
+    for (const auto& entry : this->pixels) {
+        const Pixel& pixel = entry.first;
+        const Color& color = entry.second;
+
+        int new_x = this->image_height - 1 - pixel.y;
+        int new_y = pixel.x;
+
+        Pixel rotated_pixel { new_x, new_y };
+
+        rotated_pixels[rotated_pixel] = color;
+    }
+
+    int width2 = this->image_height;
+    int height2 = this->image_width;
+    this->image_width = width2;
+    this->image_height = height2;
+
+    this->pixels = std::move(rotated_pixels);
+}
   
 }

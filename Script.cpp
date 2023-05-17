@@ -77,8 +77,14 @@ namespace prog {
                 add();
                 continue;
             }
-
-
+            if(command=="rotate_left"){
+                this->image->rotate_left();
+                continue;
+            }
+            if(command=="rotate_right"){
+                this->image->rotate_right();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -122,5 +128,10 @@ namespace prog {
         input>> filename>>r>>g>>b>>x>>y;
         Image* img=loadFromPNG(filename);
         this->image->add(*img,r,g,b,x,y );
+    }
+    void Script::crop(){
+        int x,y,w,h;
+        input>>x>>y>>w>>h;
+        this->image->crop(x,y,w,h);
     }
 }

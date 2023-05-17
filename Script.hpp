@@ -27,6 +27,7 @@ namespace prog
     void replace();
     void fill();
     void add();
+    void crop();
     
   };
 }

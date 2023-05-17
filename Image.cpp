@@ -26,9 +26,6 @@ namespace prog
     return this->image_height;
   }
 
-  // TODO: remove this DUMMY_color variable once you have appropriate fields for representing image pixels.
-  //Color DUMMY_color;
-
   Color& Image::at(int x, int y)
   {
     return pixels[{x,y}];
@@ -93,16 +90,16 @@ void Image::v_mirror() {
     }
   }
 }
-  void Image::add(const Image& img, rgb_value r, rgb_value g, rgb_value b,  int x, int y){
-    Color cmp={r,g,b};
-    for(int i = x , i2 = 0 ; i < this->image_width && i2 < img.width() ; i++, i2++){
-      for(int j = y, j2 = 0 ; j < this->image_height && j2 < img.height() ; j++, j2++){
-        if(!(pixels.find({i2,j2})->second == cmp)){
-          pixels.find({i,j})->second=img.at(i2,j2);
-        }
+  void Image::add(const Image& img, rgb_value r, rgb_value g, rgb_value b, int x, int y) {
+  Color cmp={r,g,b};
+  for (int i=x, i2=0; i<x+img.width(); i++, i2++) {
+    for (int j=y, j2=0; j<y+img.height(); j++, j2++) {
+      if (!(img.at(i2, j2)==cmp)) {
+        pixels[{i, j}]=img.at(i2, j2);
       }
     }
   }
+}
 
   void Image::crop(int x, int y, int w, int h){
   this->image_width = w;

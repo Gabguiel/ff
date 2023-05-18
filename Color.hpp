@@ -7,9 +7,15 @@ namespace prog
   class Color
   {
     private:
+    /**
+     * \brief Valores rgb
+    */
       rgb_value red_, green_, blue_;
-      // TODO: private fields required for color representation.
+
     public:
+    /**
+     * \brief Default constructor
+    */
       Color();
       Color(const Color& c);
       Color(rgb_value r, rgb_value g, rgb_value b);
